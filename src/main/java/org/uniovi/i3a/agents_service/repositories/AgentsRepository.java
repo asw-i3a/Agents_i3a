@@ -1,5 +1,7 @@
 package org.uniovi.i3a.agents_service.repositories;
 
+import java.util.List;
+
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.uniovi.i3a.agents_service.types.Agent;
@@ -15,5 +17,7 @@ public interface AgentsRepository extends MongoRepository<Agent, ObjectId> {
      * @return the user if exists, null otherwise.
      */
     Agent findById(String id);
+    
+    List<Agent> findByKindCode(int kindCode);
     
 }

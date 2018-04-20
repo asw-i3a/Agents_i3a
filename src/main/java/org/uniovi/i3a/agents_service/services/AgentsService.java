@@ -1,5 +1,7 @@
 package org.uniovi.i3a.agents_service.services;
 
+import java.util.List;
+
 import org.uniovi.i3a.agents_service.types.Agent;
 
 public interface AgentsService {
@@ -20,5 +22,11 @@ public interface AgentsService {
     void save(Agent agent);
     
     void delete(Agent agent);
+    
+    List<Agent> getAllAgents();
+    
+    Agent getById(String id);
+    
+    List<Agent> findByKindCode(int kindCode);
 
 }
