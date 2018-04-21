@@ -56,6 +56,9 @@ public class Agent implements Comparable<Agent> {
     @Getter @Setter
     private int kindCode;
     
+    @JsonProperty("agentId")
+    private String agentId;
+    
     public final static String KIND_NOT_FOUND = "KIND NOT FOUND";
 
     Agent() {
@@ -73,6 +76,10 @@ public class Agent implements Comparable<Agent> {
 	this.location = location;
 	this.id = userId;
 	this.kindCode = kindCode;
+    }
+    
+    public String getAgentId() {
+	return this._id.toString();
     }
 
     @Override
