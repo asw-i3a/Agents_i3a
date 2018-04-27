@@ -228,7 +228,7 @@ public class AgentTest {
 	nico.setKindCode(1);
 	
 	// Checking the format of the toString.
-	assertEquals("{" + "name:'" + nico.getName() + "'," + "location:'" + nico.getLocation() + "'," + "email:'"
+	assertEquals("{" + "agentId:'" + nico.getAgentId() + "',name:'" + nico.getName() + "'," + "location:'" + nico.getLocation() + "'," + "email:'"
 		+ nico.getEmail() + "'," + "id:'" + nico.getId() + "'," + "kind:'" + nico.getKind() + "',"
 		+ "kindCode:" + nico.getKindCode() + "}", nico.toString());
     }

@@ -4,9 +4,6 @@ defaults: &defaults
     - image: circleci/openjdk:8-jdk
   environment:
     MAVEN_OPTS: -Xmx3200m
-    MONGO_PASS: 1234
-    EUREKA_URL: https://eureka-i3a.herokuapp.com/eureka/
-    DOMAIN_NAME: https://i3a-2.herokuapp.com
 
 version: 2
 jobs:
@@ -33,8 +30,11 @@ workflows:
   version: 2
   build_and_tests:
     jobs:
-      - build
-      - unit-tests
+      - build:
+          context: services
+      - unit-tests:
+          context: services
       - integration-tests:
+          context: org-global
           requires:
             - build
