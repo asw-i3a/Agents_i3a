@@ -1,17 +1,12 @@
-# I3A Agents Module
+# I3A Agents Service
 
-[![Build Status](https://travis-ci.org/Arquisoft/Agents_i3a.svg?branch=master)](https://travis-ci.org/Arquisoft/Agents_i3a)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/0a5332a696ea4b06aa9f43a39f3f21f0)](https://www.codacy.com/app/jelabra/Agents_i3a?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Arquisoft/agents_i3a&amp;utm_campaign=Badge_Grade)
-[![codecov](https://codecov.io/gh/Arquisoft/Agents_i3a/branch/master/graph/badge.svg)](https://codecov.io/gh/Arquisoft/Agents_i3a)
+[![CircleCI](https://circleci.com/gh/asw-i3a/agents-service/tree/master.svg?style=svg)](https://circleci.com/gh/asw-i3a/agents-service/tree/master)
+[![codecov](https://codecov.io/gh/asw-i3a/agents-service/branch/master/graph/badge.svg)](https://codecov.io/gh/asw-i3a/agents-service)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e1e90c5a89fd4da6908296545e952c81)](https://www.codacy.com/app/colunga91/agents-service?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=asw-i3a/agents-service&amp;utm_campaign=Badge_Grade)
 
 **Welcome to our agents module**
  
-This repository contains the agents module of the team I3A2. Developed during the 2018 Software Architecture course. This module is the Agent management and queying part of the hole project. The big project consists on an incidence analysis system, composed of four modules:
- 
-- **[Module 1](https://github.com/Arquisoft/Loader_i3a)**: Information loader.
-- **[Module 2](https://github.com/Arquisoft/Agents_i3a)**: Agent management and querying.
-- **Module 3**: Incidence management.
-- **Module 4**: Analysis and dashboard.
+This repository contains the agents service of the team I3A2. Developed during the 2018 Software Architecture course. This service is the agents auth, management and queying part of the hole project. The big project consists on an incidence analysis system, see all here at the project [repo](https://github.com/asw-i3a/project-documentation).
 
 ## Authors
 
@@ -26,7 +21,7 @@ This repository contains the agents module of the team I3A2. Developed during th
 - [Carlos García Hernández](https://github.com/CarlosGarciaHdez)
 - [Victor Suárez Fernández](https://github.com/ByBordex)
 
-## Contributing to Agents_i3a
+## Contributing to this service
 Contributions to the project are welcomed and encouraged! Please see the [Contributing guide](/CONTRIBUTING.md).
 
 ## Getting Started
@@ -46,7 +41,7 @@ This project uses MongoDB as the database. You can check how to use it on [Mongo
 #### Jasypt
 This project uses Jasypt to encrypt the passwords. You don't need to download it as far as its dependency its imported from maven central, but you can check it [here](http://www.jasypt.org/).
 
-### Getting Sources for Agents_i3a
+### Getting Sources
 First create a directory for all of the project sources:
 ```
 mkdir agents_i3a
