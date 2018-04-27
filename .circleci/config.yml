@@ -31,10 +31,10 @@ workflows:
   build_and_tests:
     jobs:
       - build:
-          context: services
+          context: Services
       - unit-tests:
-          context: services
+          context: Services
       - integration-tests:
-          context: org-global
+          context: Services
           requires:
             - build
