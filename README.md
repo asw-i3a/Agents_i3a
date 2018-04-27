@@ -1,8 +1,9 @@
 # I3A Agents Service
-
-[![CircleCI](https://circleci.com/gh/asw-i3a/agents-service/tree/master.svg?style=svg)](https://circleci.com/gh/asw-i3a/agents-service/tree/master)
-[![codecov](https://codecov.io/gh/asw-i3a/agents-service/branch/master/graph/badge.svg)](https://codecov.io/gh/asw-i3a/agents-service)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e1e90c5a89fd4da6908296545e952c81)](https://www.codacy.com/app/colunga91/agents-service?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=asw-i3a/agents-service&amp;utm_campaign=Badge_Grade)
+| | **Status** |
+|---|:----|
+| **circleCI** | [![CircleCI](https://circleci.com/gh/asw-i3a/agents-service/tree/master.svg?style=svg)](https://circleci.com/gh/asw-i3a/agents-service/tree/master)
+| **code coverage** | [![codecov](https://codecov.io/gh/asw-i3a/agents-service/branch/master/graph/badge.svg)](https://codecov.io/gh/asw-i3a/agents-service)
+| **code quality** | [![Codacy Badge](https://api.codacy.com/project/badge/Grade/e1e90c5a89fd4da6908296545e952c81)](https://www.codacy.com/app/colunga91/agents-service?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=asw-i3a/agents-service&amp;utm_campaign=Badge_Grade)
 
 **Welcome to our agents module**
  
