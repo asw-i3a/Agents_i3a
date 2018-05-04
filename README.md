@@ -4,11 +4,15 @@
 | **circleCI** | [![CircleCI](https://circleci.com/gh/asw-i3a/agents-service/tree/master.svg?style=svg)](https://circleci.com/gh/asw-i3a/agents-service/tree/master)
 | **code coverage** | [![codecov](https://codecov.io/gh/asw-i3a/agents-service/branch/master/graph/badge.svg)](https://codecov.io/gh/asw-i3a/agents-service)
 | **code quality** | [![Codacy Badge](https://api.codacy.com/project/badge/Grade/e1e90c5a89fd4da6908296545e952c81)](https://www.codacy.com/app/colunga91/agents-service?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=asw-i3a/agents-service&amp;utm_campaign=Badge_Grade)
-| **endpoint** | [![AWS Bardge](https://img.shields.io/badge/deployed%20on-aws-blue.svg)](https://img.shields.io/badge/deployed%20on-aws-blue.svg)
+| **latest build** |[![Docker Badge](https://img.shields.io/badge/docker%20image-latest-blue.svg)](https://hub.docker.com/r/incisystem/agents_service/)
 
-**Welcome to our agents module**
- 
-This repository contains the agents service of the team I3A2. Developed during the 2018 Software Architecture course. This service is the agents auth, management and queying part of the hole project. The big project consists on an incidence analysis system, see all here at the project [repo](https://github.com/asw-i3a/project-documentation).
+**Welcome to our agents service**
+
+This micro-servide forms part of platform called GestUsers, if you don't know about it, we encourage you to see this other [repo](https://github.com/asw-i3a/project-documentation) first.
+
+Here your will find the source code of a micro-service dedicated to write / read operations in a database of agents. _An agent is is a person, sensor or entity that can submit incidents in to the system._
+
+**API Documentation: ** https://github.com/asw-i3a/agents-service/wiki/API-Documentation
 
 ## Authors
 
@@ -46,15 +50,15 @@ This project uses Jasypt to encrypt the passwords. You don't need to download it
 ### Getting Sources
 First create a directory for all of the project sources:
 ```
-mkdir agents_i3a
-cd agents_i3a
+mkdir agents_service
+cd agents_service
 ```
 **Cloning repository**
 ```
-git clone https://github.com/Arquisoft/Agents_i3a.git
+git clone https://github.com/asw-i3a/agents-service.git
 ```
 
-### Building Agents_i3a
+### Building the service
 As the project was created on [eclipse](https://www.eclipse.org) this is the best way to build and run the sources. The steps are the following:
 1. Open Eclipse IDE.
 2. Select import existing Maven Project.
@@ -63,16 +67,16 @@ As the project was created on [eclipse](https://www.eclipse.org) this is the bes
 
 Up to this point the module should be up and running in the address [localhost:8080](http://localhost:8080).
 
-### Working with Agents_i3a
+### Working with this service
 
-#### Running Agents_i3a
+#### Running the service
 To run the module you need to set the repository as working directory and run the following statement
 ```bash
 mvn spring-boot:run
 ```
 
 #### REST requests
-In order to use the user credentials to obtain your data, you can send a POST request to [localhost:8080/user](http://localhost:8080/user). The
+In order to use the user credentials to obtain your data, you can send a POST request to [localhost:8080/auth](http://localhost:8080/user). The
 data in this request can come as:
 ##### JSON
 ```json
@@ -87,9 +91,9 @@ data in this request can come as:
  <kind>agent-kind-as-integer-code</kind>
 </data>
 ```
-### Testing Agents_i3a
+### Testing the service
 To run the already existing tests of the module you can choose by running as JUnit tests, from the IDE. Or as the implements Maven you can run Maven tests task as `mvn test`. If the database is up and running everything should go fine and smooth. No data in the database is needed to run them. But if you want to test the
-user interface manually you'll have to introduce this document: 
+user interface manually you'll have to introduce this document:
 ```json
 {
     "_id" : "58a8670df086e81dc034d7fc",
@@ -113,7 +117,7 @@ And as data use:
 As an alternative, you can perform tests on the REST service by executing the next function in the command line:
 
 ```bash
-curl -H "Content-Type: application/json" -X POST -d '{"login":"45170000A","password":"4[[j[frVCUMJ>hU", "kind":1}' http://localhost:8080/user
+curl -H "Content-Type: application/json" -X POST -d '{"login":"45170000A","password":"4[[j[frVCUMJ>hU", "kind":1}' http://localhost:8080/auth
 ```
 
  Take into account that the parameters passed in the function are the same as the previous JSON file, so they have to be synchronised.
