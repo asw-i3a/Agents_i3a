@@ -12,7 +12,7 @@ This micro-servide forms part of platform called GestUsers, if you don't know ab
 
 Here your will find the source code of a micro-service dedicated to write / read operations in a database of agents. _An agent is is a person, sensor or entity that can submit incidents in to the system._
 
-**API Documentation: ** https://github.com/asw-i3a/agents-service/wiki/API-Documentation
+**API Documentation:** https://github.com/asw-i3a/agents-service/wiki/API-Documentation
 
 ## Authors
 
