@@ -14,6 +14,11 @@ Here your will find the source code of a micro-service dedicated to write / read
 
 **API Documentation:** https://github.com/asw-i3a/agents-service/wiki/API-Documentation
 
+### Package
+|Group|Artifact|
+|-----|--------|
+|io.github.asw.i3a|agents.service|
+
 ## Authors
 
 - Herminio García González (@herminiogg)
