@@ -133,7 +133,7 @@
 					<excludes>
 						<exclude>**/InfoController.**</exclude>
 						<exclude>**/GetAgentsController.**</exclude>
-						<exclude>**/WebSocketConfig.**</exclude>
+						<exclude>**/Service.**</exclude>
 					</excludes>
 				</configuration>
 				<executions>
