@@ -34,7 +34,12 @@ public class RegisterTest {
 	@Autowired
 	private WebApplicationContext context;
 	private static final String QUERY_STRING = "{\"name\":\"%s\", \"location\":\"%s\", \"email\":\"%s\", \"password\":\"%s\", \"username\":\"%s\", \"kindCode\":%s}";
-	private static final String BAD_QUERY_STRING = "{\"location\":\"%s\", \"email\":\"%s\", \"password\":\"%s\", \"username\":\"%s\", \"kindCode\":%s}";
+	private static final String NO_NAME_QUERY_STRING = "{\"location\":\"%s\", \"email\":\"%s\", \"password\":\"%s\", \"username\":\"%s\", \"kindCode\":%s}";
+	private static final String NO_LOCATION_QUERY_STRING = "{\"name\":\"%s\", \"email\":\"%s\", \"password\":\"%s\", \"username\":\"%s\", \"kindCode\":%s}";
+	private static final String NO_EMAIL_QUERY_STRING = "{\"name\":\"%s\", \"location\":\"%s\", \"password\":\"%s\", \"username\":\"%s\", \"kindCode\":%s}";
+	private static final String NO_PASSWORD_QUERY_STRING = "{\"name\":\"%s\", \"location\":\"%s\", \"email\":\"%s\", \"username\":\"%s\", \"kindCode\":%s}";
+	private static final String NO_USERNAME_QUERY_STRING = "{\"name\":\"%s\", \"location\":\"%s\", \"email\":\"%s\", \"password\":\"%s\", \"kindCode\":%s}";
+	private static final String NO_KINDCODE_QUERY_STRING = "{\"name\":\"%s\", \"location\":\"%s\", \"email\":\"%s\", \"password\":\"%s\", \"username\":\"%s\"}";
 	private MockMvc mockMvc;
 
 	@Autowired
@@ -58,6 +63,66 @@ public class RegisterTest {
 	@Test
 	public void successfulInsertTest() throws Exception {
 		String payload = String.format( QUERY_STRING, maria.getName(), maria.getLocation(),
+				maria.getEmail(), plainPassword, maria.getId(), maria.getKindCode() );
+
+		// We send a POST request to that URI (from http:localhost...)
+		MockHttpServletRequestBuilder request = post( "/register" ).session( session )
+				.contentType( MediaType.APPLICATION_JSON ).content( payload.getBytes() );
+
+		mockMvc.perform( request ).andDo( print() )
+				// The state of the response must be CREATED. (201);
+				.andExpect( status().isCreated() );
+
+		maria = service.getAgent( maria.getId(), plainPassword, maria.getKindCode() );
+		service.delete( maria );
+	}
+
+	@Test
+	public void noNameUnSuccessfulInsertTest() throws Exception {
+		String payload = String.format( NO_NAME_QUERY_STRING, maria.getLocation(),
+				maria.getEmail(), plainPassword, maria.getId(), maria.getKindCode() );
+
+		// We send a POST request to that URI (from http:localhost...)
+		MockHttpServletRequestBuilder request = post( "/register" ).session( session )
+				.contentType( MediaType.APPLICATION_JSON ).content( payload.getBytes() );
+
+		mockMvc.perform( request ).andDo( print() )
+				// The state of the response must be CREATED. (201);
+				.andExpect( status().isBadRequest() );
+	}
+
+	@Test
+	public void noLocationUnSuccessfulInsertTest() throws Exception {
+		String payload = String.format( NO_LOCATION_QUERY_STRING, maria.getName(),
+				maria.getEmail(), plainPassword, maria.getId(), maria.getKindCode() );
+
+		// We send a POST request to that URI (from http:localhost...)
+		MockHttpServletRequestBuilder request = post( "/register" ).session( session )
+				.contentType( MediaType.APPLICATION_JSON ).content( payload.getBytes() );
+
+		mockMvc.perform( request ).andDo( print() )
+				// The state of the response must be CREATED. (201);
+				.andExpect( status().isBadRequest() );
+
+	}
+	
+	@Test
+	public void noEmailUnSuccessfulInsertTest() throws Exception {
+		String payload = String.format( NO_EMAIL_QUERY_STRING, maria.getName(), maria.getLocation(),
+				plainPassword, maria.getId(), maria.getKindCode() );
+
+		// We send a POST request to that URI (from http:localhost...)
+		MockHttpServletRequestBuilder request = post( "/register" ).session( session )
+				.contentType( MediaType.APPLICATION_JSON ).content( payload.getBytes() );
+
+		mockMvc.perform( request ).andDo( print() )
+				// The state of the response must be CREATED. (201);
+				.andExpect( status().isBadRequest() );
+	}
+	
+	@Test
+	public void noPasswordUnSuccessfulInsertTest() throws Exception {
+		String payload = String.format( NO_PASSWORD_QUERY_STRING, maria.getName(), maria.getLocation(),
 				maria.getEmail(),
 				plainPassword, maria.getId(), maria.getKindCode() );
 
@@ -67,15 +132,27 @@ public class RegisterTest {
 
 		mockMvc.perform( request ).andDo( print() )
 				// The state of the response must be CREATED. (201);
-				.andExpect( status().isCreated() );
-		
-		maria = service.getAgent( maria.getId(), plainPassword, maria.getKindCode() );
-		service.delete( maria );
+				.andExpect( status().isBadRequest() );
 	}
-
+	
 	@Test
-	public void unSuccessfulInsertTest() throws Exception {
-		String payload = String.format( BAD_QUERY_STRING, maria.getLocation(),
+	public void noUsernameUnSuccessfulInsertTest() throws Exception {
+		String payload = String.format( NO_USERNAME_QUERY_STRING, maria.getName(), maria.getLocation(),
+				maria.getEmail(),
+				plainPassword, maria.getId(), maria.getKindCode() );
+
+		// We send a POST request to that URI (from http:localhost...)
+		MockHttpServletRequestBuilder request = post( "/register" ).session( session )
+				.contentType( MediaType.APPLICATION_JSON ).content( payload.getBytes() );
+
+		mockMvc.perform( request ).andDo( print() )
+				// The state of the response must be CREATED. (201);
+				.andExpect( status().isBadRequest() );
+	}
+	
+	@Test
+	public void noKindCodeUnSuccessfulInsertTest() throws Exception {
+		String payload = String.format( NO_KINDCODE_QUERY_STRING, maria.getName(), maria.getLocation(),
 				maria.getEmail(),
 				plainPassword, maria.getId(), maria.getKindCode() );
 
