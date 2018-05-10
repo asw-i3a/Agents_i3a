@@ -36,7 +36,7 @@ Here your will find the source code of a micro-service dedicated to write / read
 Contributions to the project are welcomed and encouraged! Please see the [Contributing guide](/CONTRIBUTING.md).
 
 ## Getting Started
-These instructions give the most direct path to work with the project.
+These instructions give the most direct path to work with this module.
 
 ### System Requirements
 As the project is developed in java macOS, Windows and Linux distributions are natively supported. Of course you will need the latest JDK available. Also, depending on where are you going to run the database, you will need internet connection or MongoDB installed and running on your machine.
@@ -72,57 +72,9 @@ As the project was created on [eclipse](https://www.eclipse.org) this is the bes
 
 Up to this point the module should be up and running in the address [localhost:8080](http://localhost:8080).
 
-### Working with this service
+Or you can use `mvn install` to fully build the module.
+
+### Working with this module
 
 #### Running the service
-To run the module you need to set the repository as working directory and run the following statement
-```bash
-mvn spring-boot:run
-```
-
-#### REST requests
-In order to use the user credentials to obtain your data, you can send a POST request to [localhost:8080/auth](http://localhost:8080/user). The
-data in this request can come as:
-##### JSON
-```json
-{"login":"agent-identifier", "password":"agent-password", "kind":"agent-kind-as-integer-code"}
-```
-
-##### XML
-```xml
-<data>
- <login>agent-identifier</login>
- <password>agent-password</password>
- <kind>agent-kind-as-integer-code</kind>
-</data>
-```
-### Testing the service
-To run the already existing tests of the module you can choose by running as JUnit tests, from the IDE. Or as the implements Maven you can run Maven tests task as `mvn test`. If the database is up and running everything should go fine and smooth. No data in the database is needed to run them. But if you want to test the
-user interface manually you'll have to introduce this document:
-```json
-{
-    "_id" : "58a8670df086e81dc034d7fc",
-    "name" : "Clara Oswin Oswald",
-    "location" : "10N10W",
-    "email" : "oswald@tardis.universe",
-    "kindCode" : "1",
-    "id" : "45170000A",
-    "password" : "khZZwjdhWwVbMdmOvz9eqBfKR1N6A+CdFBDM9c1dQduUnGewQyPRlBxB4Q6wT7Cq"
-}
-```
-
-And as data use:
- - login: 45170000A
- - password: 4[[j[frVCUMJ>hU
- - Kind of agent: Person
-
- If you have the data and the database running and the application still reports a 404 Not Found when it shouldn't
- try deleting the document and adding it again.
-
-As an alternative, you can perform tests on the REST service by executing the next function in the command line:
-
-```bash
-curl -H "Content-Type: application/json" -X POST -d '{"login":"45170000A","password":"4[[j[frVCUMJ>hU", "kind":1}' http://localhost:8080/auth
-```
-
- Take into account that the parameters passed in the function are the same as the previous JSON file, so they have to be synchronised.
+To run the module you need to set the repository as working directory and run the following statement `mvn spring-boot:run`.
