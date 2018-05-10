@@ -85,7 +85,7 @@ public class DatabaseTest {
 		service.save( user );
 		Agent userAfter = service.getAgent( testedUser.getId(), "confidencial",
 				testedUser.getKindCode() );
-		Assert.assertTrue( new StrongPasswordEncryptor().checkPassword( "confidencial",
+		assertTrue( new StrongPasswordEncryptor().checkPassword( "confidencial",
 				userAfter.getPassword() ) ); // They
 		// should
 		// be
@@ -105,19 +105,19 @@ public class DatabaseTest {
 	public void updateAgentDataTest() throws IOException {
 		Agent user = service.getAgent( testedUser2.getId(), "pass14753", 1 );
 
-		Assert.assertEquals( "Maria", user.getName() );
-		Assert.assertEquals( "10N30E", user.getLocation() );
-		Assert.assertEquals( "158", user.getId() );
-		Assert.assertEquals( "asd", user.getEmail() );
-		Assert.assertEquals( "Person", user.getKind() );
-		Assert.assertEquals( 1, user.getKindCode() );
+		assertEquals( "Maria", user.getName() );
+		assertEquals( "10N30E", user.getLocation() );
+		assertEquals( "158", user.getId() );
+		assertEquals( "asd", user.getEmail() );
+		assertEquals( "Person", user.getKind() );
+		assertEquals( 1, user.getKindCode() );
 
-		Assert.assertEquals( user.getName(), user.getName() );
-		Assert.assertEquals( user.getLocation(), user.getLocation() );
-		Assert.assertEquals( user.getEmail(), user.getEmail() );
-		Assert.assertEquals( user.getId(), user.getId() );
-		Assert.assertEquals( "Person", user.getKind() );
-		Assert.assertEquals( 1, user.getKindCode() );
+		assertEquals( user.getName(), user.getName() );
+		assertEquals( user.getLocation(), user.getLocation() );
+		assertEquals( user.getEmail(), user.getEmail() );
+		assertEquals( user.getId(), user.getId() );
+		assertEquals( "Person", user.getKind() );
+		assertEquals( 1, user.getKindCode() );
 
 		user.setName( "Pepa" );
 		user.setLocation( "45N35.5W" );
@@ -125,12 +125,12 @@ public class DatabaseTest {
 
 		service.save( user );
 		Agent updatedUser = service.getAgent( testedUser2.getId(), "pass14753", 2 );
-		Assert.assertEquals( "Pepa", updatedUser.getName() );
-		Assert.assertEquals( "45N35.5W", updatedUser.getLocation() );
-		Assert.assertEquals( "158", updatedUser.getId() );
-		Assert.assertEquals( "asd", updatedUser.getEmail() );
-		Assert.assertEquals( "Entity", updatedUser.getKind() );
-		Assert.assertEquals( 2, updatedUser.getKindCode() );
+		assertEquals( "Pepa", updatedUser.getName() );
+		assertEquals( "45N35.5W", updatedUser.getLocation() );
+		assertEquals( "158", updatedUser.getId() );
+		assertEquals( "asd", updatedUser.getEmail() );
+		assertEquals( "Entity", updatedUser.getKind() );
+		assertEquals( 2, updatedUser.getKindCode() );
 
 	}
 
