@@ -17,7 +17,7 @@ import lombok.extern.slf4j.Slf4j;
 public class AgentsServiceImpl implements AgentsService {
 
 	@Autowired
-	AgentsRepository repository;
+	private AgentsRepository repository;
 
 	@Override
 	public Agent getAgent( String identifier, String password, int kindOfAgent ) {
